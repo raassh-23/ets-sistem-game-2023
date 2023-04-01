@@ -5,19 +5,24 @@
 
 define e = Character("Eileen")
 
+# image bg hall = "hall.png"
+
+
 label start:
-    jump hall
+    jump east_3f_corridor
 # This is the start of the Exploration Sub FSM.
 
 label hall:
-    scene bg hall with fade
+    scene bg hall ext with fade:
+        zoom 2.0 yalign 0.2
 
     menu hall_menu:
         "Exit the hall":
             jump east_2f_corridor
 
 label east_2f_corridor:
-    scene bg east 2nd floor corridor with fade
+    scene bg east 2nd floor corridor with fade:
+        zoom 1.9
 
     menu east_2f_corridor_menu:
 
@@ -31,7 +36,8 @@ label east_2f_corridor:
             jump south_2f_lounge
 
 label north_2f_lounge:
-    scene bg north 2nd floor lounge with fade
+    scene bg north 2nd floor lounge with fade:
+        zoom 1.9 yalign 1.0
 
     menu north_2f_lounge_menu:
 
@@ -48,7 +54,8 @@ label north_2f_lounge:
             jump north_3f_lounge
 
 label south_2f_lounge:
-    scene bg south 2nd floor lounge with fade
+    scene bg south 2nd floor lounge with fade:
+        zoom 1.9 yalign 0.9
 
     menu south_2f_lounge_menu:
 
@@ -65,7 +72,8 @@ label south_2f_lounge:
             jump south_3f_lounge
 
 label north_2f_corridor:
-    scene bg north 2nd floor corridor with fade
+    scene bg north 2nd floor corridor with fade:
+        zoom 1.9
 
     menu north_2f_corridor_menu:
 
@@ -76,7 +84,8 @@ label north_2f_corridor:
             jump tu
 
 label tu:
-    scene bg tu with fade
+    scene bg tu with fade:
+        zoom 1.5
 
     menu tu_menu:
 
@@ -84,7 +93,8 @@ label tu:
             jump north_2f_corridor
 
 label south_2f_corridor:
-    scene bg south 2nd floor corridor with fade
+    scene bg south 2nd floor corridor with fade:
+        zoom 1.9
 
     menu south_2f_corridor_menu:
 
@@ -92,7 +102,8 @@ label south_2f_corridor:
             jump south_2f_lounge
 
 label north_1f_lounge:
-    scene bg north 1st floor lounge with fade
+    scene bg north 1st floor lounge with fade:
+        zoom 1.9 yalign 0.6
 
     menu north_1f_lounge_menu:
 
@@ -106,7 +117,8 @@ label north_1f_lounge:
             jump east_1f_corridor
 
 label south_1f_lounge:
-    scene bg south 1st floor lounge with fade
+    scene bg south 1st floor lounge with fade:
+        zoom 1.9 yalign 0.5
 
     menu south_1f_lounge_menu:
 
@@ -120,7 +132,8 @@ label south_1f_lounge:
             jump east_1f_corridor
 
 label north_1f_corridor:
-    scene bg north 1st floor corridor with fade
+    scene bg north 1st floor corridor with fade:
+        zoom 1.9 yalign 0.8
 
     menu north_1f_corridor_menu:
 
@@ -131,7 +144,8 @@ label north_1f_corridor:
             jump mosque
 
 label mosque:
-    scene bg mosque with fade
+    scene bg mosque with fade:
+        zoom 1.5
 
     menu mosque_menu:
 
@@ -139,7 +153,8 @@ label mosque:
             jump north_1f_corridor
 
 label south_1f_corridor:
-    scene bg south 1st floor corridor with fade
+    scene bg south 1st floor corridor with fade:
+        zoom 1.9 yalign 0.8
 
     menu south_1f_corridor_menu:
 
@@ -153,7 +168,8 @@ label south_1f_corridor:
             jump lab_pascasarjana
 
 label pikti:
-    scene bg pikti with fade
+    scene bg pikti with fade:
+        zoom 1.5
 
     menu pikti_menu:
 
@@ -161,7 +177,8 @@ label pikti:
             jump south_1f_corridor
 
 label lab_pascasarjana:
-    scene bg pasca with fade
+    scene bg pasca with fade:
+        zoom 1.5
 
     menu lab_pascasarjana_menu:
 
@@ -169,7 +186,8 @@ label lab_pascasarjana:
             jump south_1f_corridor
 
 label east_1f_corridor:
-    scene bg east 1st floor corridor with fade
+    scene bg east 1st floor corridor with fade:
+        zoom 1.9 yalign 0.7
 
     menu east_1f_corridor_menu:
 
@@ -180,7 +198,8 @@ label east_1f_corridor:
             jump south_1f_lounge
 
 label north_3f_lounge:
-    scene bg north 3rd floor lounge with fade
+    scene bg north 3rd floor lounge with fade:
+        zoom 1.9 yalign 0.6
 
     menu north_3f_lounge_menu:
 
@@ -197,7 +216,8 @@ label north_3f_lounge:
             jump hmtc
 
 label south_3f_lounge:
-    scene bg south 3rd floor lounge with fade
+    scene bg south 3rd floor lounge with fade:
+        zoom 1.9 yalign 0.5
 
     menu south_3f_lounge_menu:
 
@@ -211,7 +231,8 @@ label south_3f_lounge:
             jump east_3f_corridor
 
 label hmtc:
-    scene bg hmtc with fade
+    scene bg hmtc with fade:
+        zoom 1.5
 
     menu hmtc_menu:
 
@@ -219,7 +240,8 @@ label hmtc:
             jump north_3f_lounge
 
 label north_3f_corridor:
-    scene bg north 3rd floor corridor with fade
+    scene bg north 3rd floor corridor with fade:
+        zoom 1.9 yalign 0.8
 
     menu north_3f_corridor_menu:
 
@@ -239,7 +261,8 @@ label north_3f_corridor:
             jump rpl
 
 label lp1:
-    scene bg lp1 with fade
+    scene bg lp1 with fade:
+        zoom 1.5
 
     menu lp1_menu:
 
@@ -247,7 +270,8 @@ label lp1:
             jump north_3f_corridor
 
 label kcv:
-    scene bg kcv with fade
+    scene bg kcv with fade:
+        zoom 1.5
 
     menu kcv_menu:
 
@@ -255,7 +279,8 @@ label kcv:
             jump north_3f_corridor
 
 label kbj:
-    scene bg kbj with fade
+    scene bg kbj with fade:
+        zoom 1.5
 
     menu kbj_menu:
 
@@ -263,7 +288,8 @@ label kbj:
             jump north_3f_corridor
 
 label rpl:
-    scene bg rpl with fade
+    scene bg rpl with fade:
+        zoom 1.5
 
     menu rpl_menu:
 
@@ -271,7 +297,8 @@ label rpl:
             jump north_3f_corridor
 
 label south_3f_corridor:
-    scene bg south 3rd floor corridor with fade
+    scene bg south 3rd floor corridor with fade:
+        zoom 1.9 yalign 0.8
 
     menu south_3f_corridor_menu:
 
@@ -288,7 +315,8 @@ label south_3f_corridor:
             jump mi
 
 label lp2:
-    scene bg lp2 with fade
+    scene bg lp2 with fade:
+        zoom 1.5
 
     menu lp2_menu:
 
@@ -296,7 +324,8 @@ label lp2:
             jump south_3f_corridor
 
 label alpro:
-    scene bg alpro with fade
+    scene bg alpro with fade:
+        zoom 1.5
 
     menu alpro_menu:
 
@@ -304,7 +333,8 @@ label alpro:
             jump south_3f_corridor
 
 label mi:
-    scene bg mi with fade
+    scene bg mi with fade:
+        zoom 1.5
 
     menu mi_menu:
 
@@ -312,7 +342,8 @@ label mi:
             jump south_3f_corridor
 
 label east_3f_corridor:
-    scene bg east 3rd floor corridor with fade
+    scene bg east 3rd floor corridor with fade:
+        zoom 1.9 yalign 0.8
 
     menu east_3f_corridor_menu:
 
@@ -329,7 +360,8 @@ label east_3f_corridor:
             jump igs
 
 label ajk:
-    scene bg ajk with fade
+    scene bg ajk with fade:
+        zoom 1.5
 
     menu ajk_menu:
 
@@ -337,7 +369,8 @@ label ajk:
             jump east_3f_corridor
 
 label igs:
-    scene bg igs with fade
+    scene bg igs with fade:
+        zoom 1.5
 
     menu igs_menu:
 
