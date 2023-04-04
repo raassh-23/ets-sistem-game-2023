@@ -18,7 +18,7 @@ define piko = Character("Piko", image="piko") # Aiko
 
 define maxQuestionNumber = 10
 default questionNumber = 0
-default maxWrongAnswerCount = 3
+define maxWrongAnswerCount = 3
 default wrongAnswerCount = 0
 default correctAnswerMessage = ""
 
@@ -69,7 +69,7 @@ label hall:
             hima open "Bagus! Ikut aku ya. Kita akan tes pengetahuanmu tentang Informatika... Di luar!"
             jump question
 
-        "Hmmm kayanya belum siap. Aku pengen keliling-keliling dulu.":
+        "Belum! Boleh keling-keling dulu?":
             hima open blush "Oke, kamu bisa keliling-keliling lagi. Tapi jangan lupa untuk kembali ke aula ya!"
             jump east_2f_corridor
 
