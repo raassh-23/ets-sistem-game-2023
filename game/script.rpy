@@ -417,7 +417,7 @@ label kcv:
     sivi open "Selamat datang!! Aku Sivi dari lab KCV!"
     sivi open blush "KCV itu singkatan Komputer Cerdas dan Visi. Ini adalah salah satu dari 7 RMK di Informatika ITS."
     sivi frown blush "Di RMK KCV kita belajar tentang Artificial Intelligence dan Computer Vision."
-    sivi closed open "Mata kuliah wajib yang kamu akan ambil di RMK ini ada Kecerdasan Buatan dan Kecerdasan Komputasi.
+    sivi closed open "Mata kuliah wajib yang kamu akan ambil di RMK ini ada Kecerdasan Buatan dan Kecerdasan Komputasional.
     Di mata kuliah ini kamu akan belajar dasar-dasar AI."
     sivi closed open blush "Tapi ada juga mata kuliah pilihan yang bisa kamu ambil, seperti Pengolahan Citra Digital, Data Mining, Visi Komputer, dan banyak lagi."
     sivi open "Kalau kamu tertarik dengan AI dan CV, kamu bisa gabung ke lab KCV!"
@@ -627,10 +627,17 @@ label igs:
 
 label question:
     if questionNumber == 0:
+        scene bg outside sign with fade:
+            zoom 1.9 yalign 0.8
+
+        show hima open:
+            zoom 1.0 xzoom -1.0
+
+        hima closed smile "Ok, sekarang kita udah di luar. Kita akan mulai kuisnya sekarang."
         hima open "Pertanyaan pertama, ada berapa RMK di Teknik Informatika?"
 
         menu:
-            "Pilihlah jawaban yang benar!"
+            "Mana jawaban yang benar?"
 
             "Ada 7 RMK":
                 jump wrong_asnwer
@@ -642,63 +649,63 @@ label question:
                 jump wrong_asnwer
         
     elif questionNumber == 1:
-        hima open "Pertanyaan kedua, ada berapa RMK di Teknik Informatika?"
+        hima open "Pertanyaan kedua, apa kepanjangan dari MI?"
 
         menu:
-            "Pilihlah jawaban yang benar!"
+            "Mana jawaban yang benar?"
 
-            "Ada 7 RMK":
-                jump wrong_asnwer
-
-            "Ada 8 RMK":
+            "Manajemen Informasi":
                 jump correct_answer
 
-            "Ada 9 RMK":
+            "Manajemen Ilmu":
+                jump wrong_asnwer
+
+            "Manajemen Informatika":
                 jump wrong_asnwer
 
     elif questionNumber == 2:
-        hima open "Pertanyaan ketiga, ada berapa RMK di Teknik Informatika?"
+        hima open "Pertanyaan ketiga, lab apa yang berfokus ke software development?"
 
         menu:
-            "Pilihlah jawaban yang benar!"
+            "Mana jawaban yang benar?"
 
-            "Ada 7 RMK":
+            "Lab AJK":
                 jump wrong_asnwer
 
-            "Ada 8 RMK":
+            "Lab RPL":
                 jump correct_answer
 
-            "Ada 9 RMK":
+            "Lab IGS":
                 jump wrong_asnwer
 
     elif questionNumber == 3:
-        hima open "Pertanyaan keempat, ada berapa RMK di Teknik Informatika?"
+        hima open "Pertanyaan keempat, Sistem Game adalah salah satu matkul pilihan di lab apa?"
 
         menu:
-            "Pilihlah jawaban yang benar!"
+            "Mana jawaban yang benar?"
 
-            "Ada 7 RMK":
+            "Lab MI":
                 jump wrong_asnwer
 
-            "Ada 8 RMK":
+            "Lab KCV":
+                jump wrong_asnwer
+
+            "Lab IGS":
                 jump correct_answer
-
-            "Ada 9 RMK":
-                jump wrong_asnwer
 
     elif questionNumber == 4:
-        hima open "Pertanyaan kelima, ada berapa RMK di Teknik Informatika?"
+        hima open "Pertanyaan kelima, mana yang bukan salah satu matkul wajib di lab KCV?"
 
         menu:
-            "Pilihlah jawaban yang benar!"
+            "Mana jawaban yang benar?"
 
-            "Ada 7 RMK":
+            "Visi Komputer":
+                jump correct_answer
+            
+            "Kecerdasan Buatan":
                 jump wrong_asnwer
 
-            "Ada 8 RMK":
-                jump correct_answer
-
-            "Ada 9 RMK":
+            "Kecerdasan Komputasional":
                 jump wrong_asnwer
 
 label correct_answer:
@@ -713,7 +720,7 @@ label correct_answer:
         jump question
 
 label wrong_asnwer:
-    hima frown "Jawaban kamu salah!"
+    hima closed frown "Sayangnya jawaban kamu salah!"
 
     $ wrongAnswerCount += 1
     $ questionNumber += 1
@@ -728,13 +735,16 @@ label wrong_asnwer:
         jump question
 
 label good_ending:
-    hima open "Selamat kamu berhasil menyelesaikan game ini!"
-    hima open "Terima kasih sudah bermain!"
+    $ correctAnswerCount = maxQuestionNumber - wrongAnswerCount
+    
+    hima closed smile "Hebat! Kamu berhasil menjawab [correctAnswerCount] pertanyaan dengan benar!"
+    hima open "Kamu berhasil menyelesaikan quiz ini!"
+    hima closed smile "Terima kasih sudah bermain!"
 
     return
 
 label bad_ending:
-    hima open "Maaf kamu gagal menyelesaikan game ini!"
-    hima open "Terima kasih sudah bermain!"
+    hima closed open "Kamu sudah salah [maxWrongAnswerCount] kali, kamu gagal menyelesaikan quiz ini!"
+    hima open "Sayang sekali, kamu harus ulang lagi dari awal."
 
     return
