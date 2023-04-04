@@ -23,6 +23,11 @@ default wrongAnswerCount = 0
 default correctAnswerMessage = ""
 
 label start:
+    scene fsm with fade
+
+    "Dibuat oleh:\n05111940000140 - Muhammad Nur Abdurrauf \n05111940000163 - Daanii Nabil Ghinannafsi Kusnanta"
+    "Gambar FSM bisa dilihat lebih jelas di {a=https://user-images.githubusercontent.com/29938033/229814696-908de28b-f128-4a21-a43e-228b800f862c.png}link berikut{\a}"
+
     scene bg hall inside with fade:
         zoom 1.5
 
@@ -643,6 +648,9 @@ label question:
             zoom 1.0 xzoom -1.0
 
         hima closed smile "Ok, sekarang kita udah di luar. Kita akan mulai kuisnya sekarang."
+
+        play music "audio/quiz.mp3" loop
+
         hima open "Pertanyaan pertama, ada berapa RMK di Teknik Informatika?"
         $ correctAnswerMessage = "Ada 8 RMK di Teknik Informatika, yaitu RPL, KBJ, KCV, AJK, IGS, Alpro, MI, dan DTK"
 
@@ -831,6 +839,8 @@ label wrong_answer:
         jump question
 
 label good_ending:
+    play music "audio/bgm.ogg" loop
+
     $ correctAnswerCount = maxQuestionNumber - wrongAnswerCount
     
     hima closed smile "Hebat! Kamu berhasil menjawab [correctAnswerCount] pertanyaan dengan benar!"
