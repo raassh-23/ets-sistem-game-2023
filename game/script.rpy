@@ -16,10 +16,11 @@ define tica = Character("Tica", image="tica") # Chie
 define hima = Character("Hima", image="hima") # Kousei
 define piko = Character("Piko", image="piko") # Aiko
 
-define maxQuestionNumber = 5
+define maxQuestionNumber = 10
 default questionNumber = 0
 default maxWrongAnswerCount = 3
 default wrongAnswerCount = 0
+default correctAnswerMessage = ""
 
 label start:
     scene bg hall inside with fade:
@@ -28,14 +29,17 @@ label start:
     show hima open:
         zoom 1.0 pos(0.6, 0)
 
-    hima open blush "Halo rek! Selamat datang di OKKBK 20XX!"
+    hima open blush "Halo rek! Selamat datang di OKKBK 2019!"
     hima closed smile "Kalau kamu belum tahu, ini adalah acara tahunan yang diadakan untuk mengenalkan mahasiswa baru ke Departemen Teknik Informatika."
     hima open "Hari ini, kita akan belajar tentang lab-lab yang ada di Departemen Teknik Informatika."
     hima frown "Eh, tapi gak seru ya kalau kita disini aja?"
     hima closed smile "Aku mau kalian keliling-keliling ke lab-labnya."
+    hima open "Tapi sekalian nih... Kalian juga harus tahu soal lingkungan Informatika."
+    hima closed smile "Kalian harus tahu ruang TU dimana.. Masjid... dan lain-lain."
     hima closed open "Biar tambah seru lagi, nanti aku bakal kasih kuis buat kalian."
-    hima open "Jadi, jangan lupa untuk kembali ke aula ya!"
-    hima closed open "Oke, ayo kita keluar dan mulai cari lab-labnya!"
+    hima open "Pastiin kalian udah bener-bener paham sama lingkungan Informatika ya!"
+    hima open "Nanti kalau sudah siap.., jangan lupa untuk kembali ke aula ya!"
+    hima closed open "Oke, ayo kita keluar dan mulai keliling informatika!"
 
     jump east_2f_corridor
 
@@ -263,7 +267,7 @@ label lab_pascasarjana:
     scene bg lab pasca with fade:
         zoom 1.9 yalign 0.5
 
-    "Hmm Aku kira Informatika ITS cuma ada 7 lab buat masing-masing RMK"
+    "Hmm Aku kira Informatika ITS cuma ada 8 lab buat masing-masing RMK"
     "Tapi ternyata ada juga lab buat mahasiswa pascasarjana."
 
     menu lab_pascasarjana_menu:
@@ -310,7 +314,7 @@ label south_3f_lounge:
     menu south_3f_lounge_menu:
         "Kamu sedang berada di lounge selatan. Ke mana kamu ingin pergi?"
 
-        "↙ Turun ke lantai ketiga":
+        "↙ Turun ke lantai kedua":
             jump south_2f_lounge
 
         "→ Pergi ke koridor selatan":
@@ -415,7 +419,7 @@ label kcv:
         zoom 0.9 pos(0, 0.1)
 
     sivi open "Selamat datang!! Aku Sivi dari lab KCV!"
-    sivi open blush "KCV itu singkatan Komputer Cerdas dan Visi. Ini adalah salah satu dari 7 RMK di Informatika ITS."
+    sivi open blush "KCV itu singkatan Komputer Cerdas dan Visi. Ini adalah salah satu dari 8 RMK di Informatika ITS."
     sivi frown blush "Di RMK KCV kita belajar tentang Artificial Intelligence dan Computer Vision."
     sivi closed open "Mata kuliah wajib yang kamu akan ambil di RMK ini ada Kecerdasan Buatan dan Kecerdasan Komputasional.
     Di mata kuliah ini kamu akan belajar dasar-dasar AI."
@@ -437,7 +441,7 @@ label kbj:
         zoom 0.9 pos(0, 0.1)
 
     jara open "Selamat datang di lab KBJ! Aku akan jadi guide kamu hari ini. Oh, dan namaku Jara."
-    jara closed open "KBJ adalah salah satu dari 7 RMK di Informatika ITS. Singkatan dari Komputer Berbasis Jaringan."
+    jara closed open "KBJ adalah salah satu dari 8 RMK di Informatika ITS. Singkatan dari Komputer Berbasis Jaringan."
     jara open blush "Seperti namanya, RMK ini fokus ke infrastruktur dan aplikasi jaringan."
     jara blush smile "Ada satu mata kuliah wajib yang kamu akan ambil di RMK ini, yaitu Keamanan Informasi dan Jaringan."
     jara closed open blush "Mata kuliah lainnya pilihan. Ada Forensik Digital, Komputasi Awan, Sistem Terdistribusi, dan banyak lagi."
@@ -458,7 +462,7 @@ label rpl:
         zoom 0.9 pos(0.7, 0.1)
 
     rika open blush "Haloooo... Aku Rikaa! Aku admin di lab RPL ini. Jadi aku bakal jelasin tentang apa itu lab RPL!"
-    rika open "Mungkin udah pada tahu kan, RPL itu singkatan dari Rekayasa Perangkat Lunak. RPL ini salah satu dari 7 RMK di Informatika"
+    rika open "Mungkin udah pada tahu kan, RPL itu singkatan dari Rekayasa Perangkat Lunak. RPL ini salah satu dari 8 RMK di Informatika"
     rika closed open "Dari namanya udah jelas ya... RPL ini fokus ke software development. 
     Ada beberapa mata kuliah yang wajib diambil di RMK ini, 
     yaitu Analisis dan Perancangan Sistem Informasi, Manajemen Pengembangan Perangkat Lunak, Rekayasa Kebutuhan, dan Arsitektur Perangkat Lunak."
@@ -547,7 +551,12 @@ label mi:
     mana smile "Eh iya namaku Mana. Lanjut. Jadi MI ini RMK di Informatika. MI itu tuh fokus ke pengembangan sistem dan manajemen informasi."
     mana upset blush "Beda sama yang lain, disini gak ada matkul wajib. Kalian bakal ketemu MI di matkul pilihan nanti."
     mana neutral blush "Di MI ada matkul pilihan Sistem Enterprise, Rekayasa Pengetahuan, Sistem Informasi Geografis, Audit Sistem, Tata Kelola Teknologi Informasi, Basis Data Terdistribusi, sama Big Data."
-    mana upset blush "Udah sih itu aja. Udah paham kan? Iya udah ya. Oh iya kami lagi oprec admin, jadi kalau minta join aja."
+    mana upset blush "Udah sih itu aja. Udah paham kan? Iya udah ya. Oh iya kami lagi oprec admin, jadi kalau minat join aja."
+
+    mana upset "Oh lupa, lab MI ini jadi 1 ruangan sama lab DTK. Kelihatan sih dari papan namanya."
+    mana smile "Kalau DTK itu singkatan dari Dasar dan Terapan Komputasi."
+    mana upset blush "Di DTK ini ada matkul wajib kaya Aljabar Linear, Matematika Diskrit, Teori Graf dan Otomata, Komputasi Numerik, sama Probablistik dan Statistika."
+    mana upset "Udah yah itu aja yang mau aku tambahin. Tadi lupa."
 
     show mana neutral
 
@@ -635,21 +644,23 @@ label question:
 
         hima closed smile "Ok, sekarang kita udah di luar. Kita akan mulai kuisnya sekarang."
         hima open "Pertanyaan pertama, ada berapa RMK di Teknik Informatika?"
+        $ correctAnswerMessage = "Ada 8 RMK di Teknik Informatika, yaitu RPL, KBJ, KCV, AJK, IGS, Alpro, MI, dan DTK"
 
         menu:
             "Mana jawaban yang benar?"
 
             "Ada 7 RMK":
-                jump wrong_asnwer
+                jump wrong_answer
 
             "Ada 8 RMK":
                 jump correct_answer
 
             "Ada 9 RMK":
-                jump wrong_asnwer
+                jump wrong_answer
         
     elif questionNumber == 1:
         hima open "Pertanyaan kedua, apa kepanjangan dari MI?"
+        $ correctAnswerMessage = "Manajemen Informasi adalah kepanjangan dari MI."
 
         menu:
             "Mana jawaban yang benar?"
@@ -658,43 +669,46 @@ label question:
                 jump correct_answer
 
             "Manajemen Ilmu":
-                jump wrong_asnwer
+                jump wrong_answer
 
             "Manajemen Informatika":
-                jump wrong_asnwer
+                jump wrong_answer
 
     elif questionNumber == 2:
         hima open "Pertanyaan ketiga, lab apa yang berfokus ke software development?"
+        $ correctAnswerMessage = "Lab RPL atau Lab Rekayasa Perangkat Lunak berfokus ke software development. Kalau lab AJK berfokus ke arsitektur dan jaringan dan lab Alpro berfokus ke perancangan algoritma dan pemrograman."
 
         menu:
             "Mana jawaban yang benar?"
 
             "Lab AJK":
-                jump wrong_asnwer
+                jump wrong_answer
 
             "Lab RPL":
                 jump correct_answer
 
-            "Lab IGS":
-                jump wrong_asnwer
+            "Lab Alpro":
+                jump wrong_answer
 
     elif questionNumber == 3:
         hima open "Pertanyaan keempat, Sistem Game adalah salah satu matkul pilihan di lab apa?"
+        $ correctAnswerMessage = "Sistem Game adalah salah satu matkul pilihan di lab IGS yang memang berfokus pada grafika dan interaksi."
 
         menu:
             "Mana jawaban yang benar?"
 
-            "Lab MI":
-                jump wrong_asnwer
+            "Lab KBJ":
+                jump wrong_answer
 
             "Lab KCV":
-                jump wrong_asnwer
+                jump wrong_answer
 
             "Lab IGS":
                 jump correct_answer
 
     elif questionNumber == 4:
         hima open "Pertanyaan kelima, mana yang bukan salah satu matkul wajib di lab KCV?"
+        $ correctAnswerMessage = "Kecerdasan Buatan dan Kecerdasan Komputasional itu matkul wajib lab KCV. Sedangkan Visi Komputer itu matkul pilihan."
 
         menu:
             "Mana jawaban yang benar?"
@@ -703,13 +717,94 @@ label question:
                 jump correct_answer
             
             "Kecerdasan Buatan":
-                jump wrong_asnwer
+                jump wrong_answer
 
             "Kecerdasan Komputasional":
-                jump wrong_asnwer
+                jump wrong_answer
+
+    elif questionNumber == 5:
+        hima open "Pertanyaan keenam, dimana kalian bisa nemuin kantor TU Informatika?"
+        $ correctAnswerMessage = "Ruang TU Informatika berada di lantai kedua, bagian utara."
+
+        menu:
+            "Mana jawaban yang benar?"
+
+            "Lantai pertama, bagian selatan":
+                jump wrong_answer
+            
+            "Lantai ketiga, bagian timur":
+                jump wrong_answer
+
+            "Lantai kedua, bagian utara":
+                jump correct_answer
+
+    elif questionNumber == 6:
+        hima open "Pertanyaan ketujuh, untuk yang muslim, kalian bisa nemuin masjid dimana?"
+        $ correctAnswerMessage = "Kalian bisa nemuin masjid di lantai pertama, bagian utara."
+
+        menu:
+            "Mana jawaban yang benar?"
+
+            "Lantai pertama, bagian utara":
+                jump correct_answer
+            
+            "Lantai pertama, bagian timur":
+                jump wrong_answer
+
+            "Lantai pertama, bagian selatan":
+                jump wrong_answer
+
+    elif questionNumber == 7:
+        hima open "Pertanyaan kedelapan, ada berapa laboratorium workshop pemrograman di Teknik Informatika?"
+        $ correctAnswerMessage = "Ada 2 laboratorium workshop pemrograman di Teknik Informatika, LP1 dan LP2 yang masing-masing berada di bagian selatan dan timur di lantai 3."
+
+        menu:
+            "Mana jawaban yang benar?"
+
+            "Ada 1":
+                jump wrong_answer
+            
+            "Ada 2":
+                jump correct_answer
+
+            "Ada 3":
+                jump wrong_answer
+
+    elif questionNumber == 8:
+        hima open "Pertanyaan kesembilan, apa nama panjang dari himpunan mahasiswa di Teknik Informatika?"
+        $ correctAnswerMessage = "Nama panjangnya adalah Himpunan Mahasiswa Teknik Computer-Informatika. Ini karena pada awal berdiri, jurusan masih bernama Teknik Komputer dan nama HMTK sudah ada."
+
+        menu:
+            "Mana jawaban yang benar?"
+
+            "Himpunan Mahasiswa Teknik Computer-Informatika":
+                jump correct_answer
+
+            "Himpunan Mahasiswa Teknik Computer":
+                jump wrong_answer
+
+            "Himpunan Mahasiswa Teknik Informatika":
+                jump wrong_answer
+
+    elif questionNumber == 9:
+        hima open "Pertanyaan kesepuluh, apa yang menjadi salah satu fokus dari lab KBJ?"
+        $ correctAnswerMessage = "Pengembangan game menjadi salah satu fokus dari lab IGS. Sedangkan perancangan algoritma dapat kamu dalami di lab Alpro. Dan keamanan jaringan dapat kamu pelajari di lab KBJ."
+
+        menu:
+            "Mana jawaban yang benar?"
+
+            "Pengembangan game":
+                jump wrong_answer
+
+            "Keamanan jaringan":
+                jump correct_answer
+
+            "Perancangan algoritma":
+                jump wrong_answer
 
 label correct_answer:
-    hima closed smile "Jawaban kamu benar!"
+    hima closed smile "Jawabanmu benar!"
+    hima closed open "[correctAnswerMessage]"
 
     $ questionNumber += 1
 
@@ -719,8 +814,9 @@ label correct_answer:
     else:
         jump question
 
-label wrong_asnwer:
-    hima closed frown "Sayangnya jawaban kamu salah!"
+label wrong_answer:
+    hima closed frown "Sayangnya jawabanmu salah!"
+    hima closed open "[correctAnswerMessage]"
 
     $ wrongAnswerCount += 1
     $ questionNumber += 1
