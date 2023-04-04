@@ -16,6 +16,11 @@ define tica = Character("Tica", image="tica") # Chie
 define hima = Character("Hima", image="hima") # Kousei
 define piko = Character("Piko", image="piko") # Aiko
 
+define maxQuestionNumber = 5
+default questionNumber = 0
+default maxWrongAnswerCount = 3
+default wrongAnswerCount = 0
+
 label start:
     scene bg hall inside with fade:
         zoom 1.5
@@ -53,7 +58,7 @@ label hall:
         
         "Ya!":
             hima open "Bagus! Ikut aku ya. Kita akan tes pengetahuanmu tentang Informatika... Di luar!"
-            jump hall
+            jump question
 
         "Hmmm kayanya belum siap. Aku pengen keliling-keliling dulu.":
             hima open blush "Oke, kamu bisa keliling-keliling lagi. Tapi jangan lupa untuk kembali ke aula ya!"
@@ -619,3 +624,117 @@ label igs:
 
         "Keluar dari lab IGS":
             jump east_3f_corridor
+
+label question:
+    if questionNumber == 0:
+        hima open "Pertanyaan pertama, ada berapa RMK di Teknik Informatika?"
+
+        menu:
+            "Pilihlah jawaban yang benar!"
+
+            "Ada 7 RMK":
+                jump wrong_asnwer
+
+            "Ada 8 RMK":
+                jump correct_answer
+
+            "Ada 9 RMK":
+                jump wrong_asnwer
+        
+    elif questionNumber == 1:
+        hima open "Pertanyaan kedua, ada berapa RMK di Teknik Informatika?"
+
+        menu:
+            "Pilihlah jawaban yang benar!"
+
+            "Ada 7 RMK":
+                jump wrong_asnwer
+
+            "Ada 8 RMK":
+                jump correct_answer
+
+            "Ada 9 RMK":
+                jump wrong_asnwer
+
+    elif questionNumber == 2:
+        hima open "Pertanyaan ketiga, ada berapa RMK di Teknik Informatika?"
+
+        menu:
+            "Pilihlah jawaban yang benar!"
+
+            "Ada 7 RMK":
+                jump wrong_asnwer
+
+            "Ada 8 RMK":
+                jump correct_answer
+
+            "Ada 9 RMK":
+                jump wrong_asnwer
+
+    elif questionNumber == 3:
+        hima open "Pertanyaan keempat, ada berapa RMK di Teknik Informatika?"
+
+        menu:
+            "Pilihlah jawaban yang benar!"
+
+            "Ada 7 RMK":
+                jump wrong_asnwer
+
+            "Ada 8 RMK":
+                jump correct_answer
+
+            "Ada 9 RMK":
+                jump wrong_asnwer
+
+    elif questionNumber == 4:
+        hima open "Pertanyaan kelima, ada berapa RMK di Teknik Informatika?"
+
+        menu:
+            "Pilihlah jawaban yang benar!"
+
+            "Ada 7 RMK":
+                jump wrong_asnwer
+
+            "Ada 8 RMK":
+                jump correct_answer
+
+            "Ada 9 RMK":
+                jump wrong_asnwer
+
+label correct_answer:
+    hima closed smile "Jawaban kamu benar!"
+
+    $ questionNumber += 1
+
+    if questionNumber == maxQuestionNumber:
+        jump good_ending
+
+    else:
+        jump question
+
+label wrong_asnwer:
+    hima frown "Jawaban kamu salah!"
+
+    $ wrongAnswerCount += 1
+    $ questionNumber += 1
+
+    if wrongAnswerCount == maxWrongAnswerCount:
+        jump bad_ending
+
+    elif questionNumber == maxQuestionNumber:
+        jump good_ending
+
+    else:
+        jump question
+
+label good_ending:
+    hima open "Selamat kamu berhasil menyelesaikan game ini!"
+    hima open "Terima kasih sudah bermain!"
+
+    return
+
+label bad_ending:
+    hima open "Maaf kamu gagal menyelesaikan game ini!"
+    hima open "Terima kasih sudah bermain!"
+
+    return
