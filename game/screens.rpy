@@ -560,7 +560,7 @@ screen about():
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            text _("Dibuat oleh:\n05111940000140 - Muhammad Nur Abdurrauf \n05111940000163 - Daanii Nabil Ghinannafsi Kusnanta\n\nCharacter assets by {a=https://noranekogames.itch.io/}Noraneko Games{/a}\n\nMade with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
 
 style about_label is gui_label
