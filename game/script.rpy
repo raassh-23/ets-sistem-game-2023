@@ -22,6 +22,11 @@ default maxWrongAnswerCount = 3
 default wrongAnswerCount = 0
 
 label start:
+    scene fsm with fade
+
+    "Dibuat oleh:\n05111940000140 - Muhammad Nur Abdurrauf \n05111940000163 - Daanii Nabil Ghinannafsi Kusnanta"
+    "Gambar FSM bisa dilihat lebih jelas di {a=https://user-images.githubusercontent.com/29938033/229814696-908de28b-f128-4a21-a43e-228b800f862c.png}link berikut{\a}"
+
     scene bg hall inside with fade:
         zoom 1.5
 
