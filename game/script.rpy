@@ -17,6 +17,21 @@ define hima = Character("Hima", image="hima") # Kousei
 define piko = Character("Piko", image="piko") # Aiko
 
 label start:
+    scene bg hall inside with fade:
+        zoom 1.5
+
+    show hima open:
+        zoom 1.0 pos(0.6, 0)
+
+    hima open blush "Halo rek! Selamat datang di OKKBK 20XX!"
+    hima closed smile "Kalau kamu belum tahu, ini adalah acara tahunan yang diadakan untuk mengenalkan mahasiswa baru ke Departemen Teknik Informatika."
+    hima open "Hari ini, kita akan belajar tentang lab-lab yang ada di Departemen Teknik Informatika."
+    hima frown "Eh, tapi gak seru ya kalau kita disini aja?"
+    hima closed smile "Aku mau kalian keliling-keliling ke lab-labnya."
+    hima closed open "Biar tambah seru lagi, nanti aku bakal kasih kuis buat kalian."
+    hima open "Jadi, jangan lupa untuk kembali ke aula ya!"
+    hima closed open "Oke, ayo kita keluar dan mulai cari lab-labnya!"
+
     jump east_2f_corridor
 
 # This is the start of the Exploration Sub FSM.
@@ -274,7 +289,7 @@ label north_3f_lounge:
         "→ Lihat kantor HMTC":
             jump hmtc
 
-        "↘ Turun ke lantai pertama":
+        "↘ Turun ke lantai kedua":
             jump north_2f_lounge
 
         "← Pergi ke koridor utara":
