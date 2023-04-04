@@ -639,6 +639,9 @@ label question:
             zoom 1.0 xzoom -1.0
 
         hima closed smile "Ok, sekarang kita udah di luar. Kita akan mulai kuisnya sekarang."
+
+        play music "audio/quiz.mp3" loop
+
         hima open "Pertanyaan pertama, ada berapa RMK di Teknik Informatika?"
 
         menu:
@@ -740,6 +743,8 @@ label wrong_asnwer:
         jump question
 
 label good_ending:
+    play music "audio/bgm.ogg" loop
+
     $ correctAnswerCount = maxQuestionNumber - wrongAnswerCount
     
     hima closed smile "Hebat! Kamu berhasil menjawab [correctAnswerCount] pertanyaan dengan benar!"
